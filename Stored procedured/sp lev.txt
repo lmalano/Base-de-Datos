@@ -1,0 +1,58 @@
+Ejemplo de practica de Stored Procedures
+1) Programe un procedimiento almacenado que realice las siguientes tareas sobre la base de datos Sakila:
+
+Reciba como parámetro el número de id del alquiler cuyo pago se debe dar de baja.
+
+Verifique que el alquiler existe, caso contrario emita una tabla con un solo registro y un campo ERR y valor -1 y trermine
+
+Verifique que el alquiler esta pago, caso contrario emita una tabla con un solo registro y un campo ERR y valor -2 y termine
+
+Elimine el pago de la tabla payments.
+
+
+CREATE DEFINER=`root`@`%` PROCEDURE `chaufilm`(idfilm int)
+BEGIN
+declare cant int;
+select count(*) into cant from 
+film where film_id = idfilm;
+if cant = 0 then
+select "FILM INEXISTENTE";
+else
+select count(*) into cant from
+rental join inventory on
+rental.inventory_id = inventory.inventory_id
+where inventory.film_id = idfilm;
+if cant > 0 then
+select "FILM CON ALQUILERES";
+else
+delete from film_actor where film_id = idfilm;
+delete from film_category where film_id = idfilm;
+delete from inventory where film_id = idfilm;
+delete from film_text where film_id = id_film;
+delete from film where film_id = idfilm;
+
+end if;
+end if;
+END
+
+2)
+
+Sobre la base de datos Sakila programar un Stored Procedure que dé de baja un film de la tabla film. El store recibirá como parámetro el idFilm a eliminar.
+El Sp deberá controlar que el idFilm en la tabla film exista caso contrario deberá emitir una tabla de una sola fila y columna con valor "FILM INEXISTENTE".
+El Sp deberá controlar que no exista ningún alquiler de copias de ese film caso contrario deberá emitir una tabla de una sola fila y columna con valor "FILM CON ALQUILERES".
+El Sp deberá realizar las eliminaciones que correspondan para no dejar inconsistencias por ejemplo de los actores de ese film.
+El Sp deberá remover el film de la tabla film sin producir error de consistencia.
+
+CREATE DEFINER=`root`@`%` PROCEDURE `altarenta`(invid int,cliid int,staffid int)
+pro:BEGIN
+declare cant int;
+select count(*) into cant from rental 
+where inventory_id = invid and isnull(return_date);
+
+if cant > 0 then
+select "ERROR, figura alquilada";
+leave pro;
+end if;
+insert into rental (rental_date,inventory_id,customer_id,staff_id) values (now(),invid,cliid,staffid);
+select last_insert_id();
+END

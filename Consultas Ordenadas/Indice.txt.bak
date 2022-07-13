@@ -1,0 +1,91 @@
+1.sql 
+- Listar todos los actores con su nombre y apellido y la cantidad de peliculas que actuaron del tipo "Animation",si no actuó en ninguna poner 0
+- Peliculas con mayor duracion y precio de alquiler.
+2.sql
+- Actores a los q sus peliculas las alquilaron mas de 500 veces y actuan en films de animación.
+3.sql
+- Cantidad de actor por peliculas rentadas.
+4.sql
+- Actores y sus peliculas en donde actuaron, con su recaudacion e indicar en cual es la que mayor recaudo (Final 14-12-2017).
+5.sql
+- Recaudacion o pago total de cada staff.
+6.sql
+- Implemente una consulta que liste los actores,el monto de alquileres cobrados de sus films y el nombre de la pelicula que mas recaudó dentro de las que trabajó ese actor, muéstrelos ordenados por monto de alquileres de mayor a menor.
+7.sql
+- Comparacion de join coin where en matcheo de tablas.
+8.sql
+- Peliculas con su numeros de copia, su recaudacion y el staff que mas vendio.
+9.sql
+- Actores que sus peliculas fueron alquiladas mas de 500 veces o que actuaron en films de animacion.
+10.sql
+- Agrupo suma total recaudada por staff por año.
+11.sql
+- Actores que actuaron en peliculas de mas de 70 min.
+- Los 5 actores que mas tiempo actuaron, sumando la duracion de todas sus peliculas.
+12.sql
+- Clientes del pais 44 que gastaron mas que todos del 23
+13.sql
+- Consulta que por cada actor con los campos: Apellido del actor, cantidad de films que superaron la recaudacion promedio de todos los films de la db (usar la tabla payment), cantidad de categorias distintas de los films en los que participo y cantidad total de alquileres de films en los que participó.
+14.sql
+- Realizar una consulta que genere un reporte de la perfomance de cada tienda (store), empleado y film por cada combinación válida de estos tres 
+(tener en cuenta que un empleado sólo trabaja en una tienda). indicar cuanto se recaudó y cuantos alquileres se realizaron. Si para una combinación válida de tienda, empleado y film no se registran alquileres y/o recaudación se deberá poner 0, no se admitirá null.
+15.sql
+-  Actores con la pelicula que mas recaudo (titulo y film_id), recaudacion por actor y actores que ganaron mas que el.
+16.sql
+-  Cant de Alquileres y pagado por cliente, con su nombre, apellido, direccion ciudad y pais. (Los que no son de Mayo va con 0 alquileres y 0 pagos parte 2)
+17.sql
+- Seleccionar todos los clientes (apellido y nombre) cuyo pagos promedios historicos sean mayores que los pagos promedios de todos los clientes.
+18.sql
+- Clientes con cant de alquileres del mes 5 y monto alquilado>10
+19.sql
+- Actor mas visto en Argentina
+20.sql
+- Consultar las ciudades que alquilaron peliculas en mas que el promedio de todas
+21.sql
+- #Ganancia por mes y año de cada store.
+22.sql
+- Listado de actores que con las ganancias.
+23.sql
+- Listado de actores que mas ganaron por mes y año.
+24.sql
+- Staff, monto cobrado y el cliente que mas pago con su monto.
+25.sql
+- id del actor, apellido del actor, nombre del actor, clasificación (categoría), cantidad de films de ese actor en esa clasificación.
+Devolverá un registro por cada combinación actor / categoría que encuentre en la BD. 
+Se aplicará un filtro para que muestre SOLO los actores que han actuado en films de TODAS las categorías.
+26.sql
+- ranking de ciudades morosas,el listado deberá indicar el nombre de la ciudad, la cantidad de clientes registrados en esa ciudad, 
+el promedio de alquileres realizados por cliente y el promedio de alquileres devueltos fuera de fecha por cliente.
+27.sql
+- consulta que muestre la evolución de los alquileres de películas, por año y por semestre, los semestres se identificaran por un número (1 – primer semestre, 2 – segundo semestre). 
+Un registro por cada película, mes (O AÑO?) y semestre, indicando una columna con la cantidad de alquileres en ese periodo para esa película. 
+28.sql
+- Liste por cada categoría de film, la cantidad total de alquileres, el monto recaudado, cantidad de peliculas vencidas y no devueltas, 
+el actor que mas peliculas protagonizó de esa categoría, si hay dos o mas con la misma cantidad tomar uno.
+29.sql
+- Consulta que identifique el actor mas taquillero en cuanto a pagos de alquileres de peliculas en las que actuó y devuelva para ese actor el monto que recaudó, la cantidad de peliculas en las que actuó y 
+la cantidad de generos (categorías).
+30.sql
+- consulta que retorne un listado referido al stock de copias de los films en las tiendas (store) al momento de la emisión del listado.
+El listado tendrá 4 columnas: “TÍTULO_FILM”, “NRO_STORE”, “DISPONIBLE”, “PRESTADO”. 
+Un registro por cada combinación film y store siempre y cuando existan copias registradas de ese film en ese store (prestadas o no).
+31.sql
+- Por cada combinación categoría - actor indicar nombre de la categoría, nombre y apellido del actor y cuantos alquileres se realizaron de cada categoría por peliculas de cada actor.
+32.sql
+- Nombre Pelicula,	Monto recaudado,	Cantidad de Alquileres Totales,	Cantidad de Actores,	Sucursal donde mas recaudo.
+33.sql
+- Apellido y Nombre adel actor,	Cantidad de Alquileres Totales	, Monto Pagado Total,	Cantidad de alquileres no devueltos y Fecha Ultimo Alquiler.
+34.sql
+- Obtener por tienda, mes y año, un listado de la cantidad de clientes distintos que pagaron alquileres.
+35.sql
+- Mostar los alquileres que se entregaron fuera de termino, mostrando nombre y apellido del cliente, nombre de la pelicula, y dias de demora.
+36.sql
+- Pelicula con su cant de actores, cant de alquiler y cant de alq no devueltos.
+37.sql
+- a) Título del film, b)Nombre del distrito donde viven la mayor cantidad de clientes que rentaron esa película, si hay empate poner tantos registros como distritos empaten repitiendo los valores de las  columnas a y d.
+c)Cantidad de clientes totales que viven en ese distrito y d)	Cantidad total de copias  de ese film. PARCIAL 25-6-19.
+38
+
+
+
+

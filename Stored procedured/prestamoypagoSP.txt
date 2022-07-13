@@ -1,0 +1,39 @@
+
+b) (40pts) Implemente un Store Procedure (SP) que registre la entrega de un préstamo a la fecha de hoy y simultáneamente registre el pago al precio del alquiler estándar del film. El SP recibirá como parámetros: 
+- el nombre y apellido del cliente (si hay mas de uno con ese nombre y apellido devolverá una tabla con una columna con los ID de los clientes del mismo nombre y titulo de la columna “CUST_IDS”); 
+- Id del store; 
+- Id del film, deberá buscar en el inventario una copia disponible de ese film en ese store, si no hay copia disponible devolverá una tabla de una fila y un columna con la celda completada con el texto “NO DISPONIBLE” y el título “ERR”;
+- Staff Id.
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `prestamoypago`(nombre varchar(45), apellido varchar(45), st_id tinyint, fi_id smallint)
+BEGIN
+declare cli_id smallint;
+declare cant int;
+declare cant2 int;
+declare invid mediumint;
+declare r_id int;
+declare rr decimal(4,2);
+
+SELECT COUNT(*) into cant from customer where first_name=nombre and last_name=apellido;
+
+if cant>1 then
+select first_name as Nombre, customer_id as CUST_IDS from  customer;
+else
+ select customer_id into cli_id from customer where first_name=nombre and last_name=apellido;
+
+  select count(*) into cant2 from inventory where film_id=fi_id and store_id=st_id;
+   if(cant2>0) then 
+	select inventory_id into invid from inventory where film_id=fi_id and store_id=st_id;
+     
+   insert into rental (rental_date,inventory_id,customer_id,staff_id) values (now(),invid,cli_id,st_id);
+   
+   select rental_id into r_id from rental where inventory_id=invid and customer_id=cli_id and staff_id=st_id; 
+   select rental_rate into rr from film where film_id=fi_id;
+   
+   insert into payment(customer_id,staff_id,rental_id,amount,payment_date,last_update) values (cli_id,st_id,r_id,rr,now(),now());
+   end if;
+  
+  end if;
+
+END
